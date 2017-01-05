@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> </meta>
+        <title>Create event | EventSearch</title>
+        <link rel="stylesheet" href="/eventsearch/css/main.css" th:href="@{/css/main.css}" > </link>
+        <link rel="stylesheet" href="/eventsearch/css/form.css" th:href="@{/css/form.css}" > </link>
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript">
+			var date = new Date();
+			$(document).ready(function(){
+				$("#formTime").attr("value", date.getHours()+1+":00:00");
+				$("#formDate").attr("value", date.getFullYear()+"-"+date.getMonth()+2+"-0"+(date.getDay()+1));
+				
+				
+				$("#form").submit(function(){
+					if($("#formEventName").val() == "" || $("#formEventName").val() == "Тема"){
+						alert("Поле ім'я не може бути пустим");
+						//return false;
+					}
+				});
+			});
+		</script>
+    </head>
+    
+    <body>
+    	<section class="section_TopMain">
+        	<div class="menu">
+            	<div class="wraper_content">
+                    <ul class="menu_main">
+                        <li><a href="/eventsearch/" th:href="@{/}">Main</a> </li>
+                        <li><a href="/eventsearch/events" th:href="@{/events}">List of events</a> </li>
+                        <li><a href="/eventsearch/createEvent" th:href="@{/createEvent}" class="active">Create event</a> </li>
+                    </ul>
+                     <ul class="menu_settings">
+                        <li><a href="/eventsearch/registration" th:href="@{/registration}"> Registration </a> </li>
+                        <li><a href="/eventsearch/login" th:href="@{/login}"> Login </a> </li>
+                    </ul>
+             	</div>
+            </div>
+            
+        
+         	<div class="wraper_center"> <div>
+            	<h1> CreateEvent </h1>
+         	</div> </div>
+       	</section>
+        
+                
+		<section class="section_content">
+        	<form method="POST" action="/EventSearch/createEvent" class="wraper_content form_element form_ceate" id="form">
+            	<h4>Базова інформація</h4>
+                <p class="form_label"> 
+                	<span>Тема заходу </span>
+                	<input type="text" name="EventName" value="Тема" id="formEventName"> </input>
+             	</p>
+                <p class="form_label"> 
+                	<span>Напрям заходу </span>
+                	<select size="1" name="nap">
+                        <option value="0" th:each="citie: ${type}" th:value="${citie.id}" th:text="${citie.name}">Оберіть напрям</option>
+                    </select>
+             	</p>
+                <p class="form_label"> 
+                	<span>Місце проведення заходу </span>
+                	<select size="1" name="city">
+                        <option value="0" th:each="citie: ${city}" th:value="${citie.id}" th:text="${citie.name}">Оберіть місто</option>
+                    </select>
+             	</p>
+          
+          		 <h4> Час проведення </h4>
+					<p class="form_label"> 
+						<span> Час проведення </span>
+						<input type="time" name="time" id="formTime"> </input>
+					</p>
+					  <p class="form_label"> 
+						<span> Дата проведення </span>
+						<input type="date" name="date" id="formDate"> </input>
+					</p>
+             	
+                <h4>Опис</h4>
+                 <p class="form_label"> 
+                	<span>Додайте опис події</span>
+                	<textarea rows="10" name="Description" placeholder="Текст"></textarea>
+             	</p>
+                <p class="form_label"> 
+                	<span>Короткий опис</span>
+                	<textarea rows="5" name="ShortDescription" placeholder="Текст"></textarea>
+             	</p>
+                
+                <input type="submit" value="Зберегти" style="display:block; margin:0 auto; margin-top:50px;"> </input>
+           	</form>     	
+        </section>
+        
+        <section class="section_footer">
+        </section>
+    </body>
+</html>

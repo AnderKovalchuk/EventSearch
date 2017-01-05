@@ -1,0 +1,273 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face{
+    font-family:"Akrobat Black";    
+	src:local("Akrobat Black"),url(font/Akrobat_Black.otf)
+}
+@font-face{
+    font-family:"Akrobat ExtraLight";    
+	src:local("Akrobat ExtraLight"),url(font/Akrobat_ExtraLight.otf)
+}
+@font-face{
+    font-family:"Akrobat Regular";    
+	src:local("Akrobat Regular"),url(font/Akrobat_Regular.otf)
+}
+@font-face{
+    font-family:"Akrobat Light";    
+	src:local("Akrobat Light"),url(font/Akrobat_Light.otf)
+}
+
+
+* {
+	padding:0;
+	margin:0;
+}
+
+.wraper_content{
+	width:90%;
+	margin:0 auto;
+}
+.wraper_smoleForm{
+	margin: 0 auto;
+	width: 30%;
+	background-color: #fff;
+	text-align: center;
+	opacity: 0.999;
+}
+
+.section_TopMain{
+	background-image:url(../image/bg_big.jpg);
+	background-size:cover;
+	background-position:center;
+}
+.section_TopMain h1{
+	padding:40px 0;
+	color:#fff;
+	font-family:"Akrobat ExtraLight", Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:5em;
+	text-align:center;
+}
+.section_TopMain .wraper_content{
+	width:100%;
+}
+
+.section_content{
+	padding-bottom:60px;
+}
+.section_content h4{
+	padding:20px 0 10px;
+	color:#2C3E50;
+	font-family:"Akrobat ExtraLight", Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:2.5em;
+	text-align:center;
+}
+.section_content p{
+	font-family:"Akrobat Light", Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:1.1em;
+	text-indent:30px;
+	padding-bottom:10px;
+}
+
+.section_dark{
+	background-color:#2C3E50;
+	padding-bottom:30px;
+}
+.section_dark h4, .section_dark p{
+	color:#fff;
+}
+
+.section_footer{
+	background-color:#2C3E50;
+	height:60px;
+}
+
+
+.menu{
+	background-color:#2C3E50;
+}
+.menu_main{
+	width:100%;
+	display:inline-block;
+}
+.menu_settings{
+	display:none;
+}
+.menu li{
+	list-style-type:none;
+}
+.menu a, .link_detal a{
+	display:block;
+	padding:10px 0;		
+	text-decoration:none;
+	transition: background-color 0.2s ease-in;
+}
+.menu a{
+	text-align:center;
+	color:#fff;
+	font-family:"Akrobat ExtraLight", Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.link_detal a{
+	color:#832D51;
+	font-family:"Akrobat Light", Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;	
+	font-size:1.2em;
+	text-align:right;
+}
+.menu a:hover, .menu a[class="active"]{
+	background-color:#832D51;
+}
+
+.event{
+	padding-bottom:20px;
+}
+.event img{
+	width:100%;
+}
+.event p{
+	text-align:justify;
+}
+.event h5{
+	padding:10px 0;
+	color:#2C3E50;
+	font-family:"Akrobat ExtraLight", Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:150%;
+	text-align:center;
+}
+
+.decor_greasiness{
+	font-weight:700;
+}
+.decor_p_title{
+	display:block;
+	padding-top:20px;
+	font-family:"Akrobat Regular", Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;	
+}
+.decor_link{
+	color:#832D51;
+	font-family:"Akrobat Regular", Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;	
+	text-decoration:none;	
+	text-align:right;
+}
+
+.content_mainImage{
+	width:100%;
+	padding:30px 0;
+}
+
+.events_filter{
+	padding:20px 0;
+}
+.events_filter select, .events_filter input{
+	width:100%;
+	margin:7px;
+}
+
+@media only screen and (min-width:500px){
+	.section_TopMain h1{
+		padding:100px 0;
+	}
+	.section_dark{
+		background-image:url(../image/bg_big_1.jpg);
+		background-size:cover;
+		background-position:center;
+		background-blend-mode: normal;
+	}
+	
+	.menu{
+		opacity:.9;
+	}
+	.menu li{
+		display:inline-block;
+	}
+	.menu li a{
+		padding:20px 30px;
+	}
+	
+	.event{
+		position:relative;
+		overflow: hidden;
+	}
+	.event img{
+		float:left;
+		width:40%;
+		margin:0 20px 0px 0;
+	}
+	.event h5{
+		text-align:left;
+	}
+	
+	.content_mainImage{
+		width:40%;
+		float:right;
+		padding:0 0 20px 20px;
+	}
+	
+	.link_detal{
+		display:block;
+		text-align:right;
+	}
+	.link_detal a{
+		display:inline-block;
+		padding:7px 30px;
+		color:#832D51;
+		text-align:right;
+		border:1px solid #832D51;
+		border-radius:2px;
+		transition: background-color 1s ease-in;
+		transition: color 0.2s ease-in;
+	}
+	.link_detal a:hover{
+		background-color:#832D51;
+		color:#fff;
+	}
+}
+@media only screen and (min-width:900px){
+	.wraper_content{
+		width:80%;
+		margin:0 auto;
+	}
+	.wraper_center{
+		display:table;
+		width:100%;
+		height:100%;
+		vertical-align:middle;
+	}
+	.wraper_center>div{
+		display:table-cell;
+		height:auto;
+		width:auto;
+		vertical-align:middle;
+	}
+	.wraper_onePage{
+		width:50%;
+	}
+	
+	.section_FullScreen{
+		height:100vh;
+	}
+	
+	.section_content h4{
+		padding:60px 0 30px;
+	}
+	
+	.menu_main{
+		width:auto;
+	}
+	.menu_settings{
+		display:block;
+		float:right;
+	}
+	
+	.events{
+		overflow: hidden;
+	}
+	.event{
+		overflow: hidden;
+		display:block;
+		width: calc(50% - 30px);
+		float:left;
+	}
+	.event:nth-child(odd){
+		margin-right:30px;
+	}
+}

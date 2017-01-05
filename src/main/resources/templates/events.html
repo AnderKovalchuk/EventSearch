@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> </meta>
+        <title>ListOfEvents | EventSearch</title>
+        <link rel="stylesheet" href="/eventsearch/css/main.css" th:href="@{/css/main.css}" > </link>
+        <link rel="stylesheet" href="/eventsearch/css/form.css" th:href="@{/css/form.css}" > </link>
+    </head>
+    
+    <body>
+    	<section class="section_TopMain">
+        	<div class="menu">
+            	<div class="wraper_content">
+                    <ul class="menu_main">
+                        <li><a href="/eventsearch/" th:href="@{/}">Main</a> </li>
+                        <li><a href="/eventsearch/events" th:href="@{/events}"  class="active">List of events</a> </li>
+                        <li><a href="/eventsearch/createEvent" th:href="@{/createEvent}">Create event</a> </li>
+                    </ul>
+                     <ul class="menu_settings">
+                        <li><a href="/eventsearch/registration" th:href="@{/registration}"> Registration </a> </li>
+                        <li><a href="/eventsearch/login" th:href="@{/login}"> Login </a> </li>
+                    </ul>
+             	</div>
+            </div>
+            
+        
+         	<div class="wraper_center"> <div>
+            	<h1> ListOfEvents </h1>
+         	</div> </div>
+       	</section>
+       	
+        <section class="section_content">
+       	  <div class="wraper_content">
+          	<form method="POST" action="/EventSearch/filterEvent" class="events_filter form_element">
+            	<select size="1" name="city">
+                	<option value="0" th:each="citie: ${city}" th:value="${citie.id}" th:text="${citie.name}">Оберіть місто</option>
+                </select>
+                <select size="1" name="nap">
+                	<option value="0" th:each="citie: ${type}" th:value="${citie.id}" th:text="${citie.name}">Оберіть напрям</option>
+                </select>
+                <input type="submit" value="Знайти"> </input>
+                
+            </form>
+            
+            <div class="events">
+            	<div class="event" th:each="event: ${events}">
+              		<h5 th:utext="${event.title}">Заголовок</h5>
+               		<p th:utext="${event.shortDescription}"> Текст </p>
+               		<p> Дата: <span th:text="${#dates.format(event.dates, 'HH:mm dd.MM.yy')}"> **/**/** </span> </p>
+               		<span class="link_detal"><a href="#" th:href="@{/event/}+'?id='+${event.id}">Деталі</a></span>
+                </div>
+            </div>
+		  </div>
+        </section>
+           
+        <section class="section_footer">
+        </section>
+    </body>
+</html>

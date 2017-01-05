@@ -1,0 +1,39 @@
+/* CSS Document */
+
+.form_element select, .form_element input, .form_element textarea{
+	width:100%;
+	padding:10px 20px;
+	font-size:1.2em;
+	font-family:"Akrobat Light", Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.form_element input[type="submit"]{
+	background-color:#fff;
+	border:1px solid #832D51;
+	border-radius:2px;
+	transition: background-color 1s ease-in;
+	transition: color 0.2s ease-in;
+}
+.form_element input[type="submit"]:hover{
+	background-color:#832D51;
+	color:#fff;
+}
+
+.form_label span{
+	display:block;
+	font-size:1.5em;
+	padding:20px 0 10px 0;
+	text-indent:0;
+}
+@media only screen and (min-width:500px){
+	.form_element select, .form_element input{
+		width:auto;
+	}
+	.form_ceate select, .form_ceate input{
+		width:50%;
+	}
+	.form_ceate input[type="text"]{
+		width:calc(50% - 40px); 
+	}
+	
+}

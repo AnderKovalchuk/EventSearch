@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> </meta>
+        <title>Main page | EventSearch</title>
+        <link rel="stylesheet" href="/eventsearch/css/main.css" th:href="@{/css/main.css}"> </link>
+    </head>
+    
+    <body>
+    	<section class="section_FullScreen section_TopMain">
+        	<div class="menu">
+            	<div class="wraper_content">
+                    <ul class="menu_main">
+                        <li><a href="/eventsearch/" th:href="@{/}" class="active">Main</a> </li>
+                        <li><a href="/eventsearch/events" th:href="@{/events}">List of events</a> </li>
+                        <li><a href="/eventsearch/createEvent" th:href="@{/createEvent}">Create event</a> </li>
+                    </ul>
+                    <ul class="menu_settings">
+                        <li><a href="/eventsearch/registration" th:href="@{/registration}"> Registration </a> </li>
+                        <li><a href="/eventsearch/login" th:href="@{/login}"> Login </a> </li>
+                    </ul>
+             	</div>
+            </div>
+        
+         	<div class="wraper_center"> <div>
+            	<h1> EventSearch </h1>
+         	</div> </div>
+       	</section>
+        <section class="section_FullScreen section_content section_dark">
+        	<div class="wraper_content wraper_center wraper_onePage"><div>
+                <h4>Welcome</h4>
+                <p>Introduction description: This is the workshop about preparing offers for fundraisers :) Or for media partners. What should it include, how to build content, what kind of photos should they use etc.</p>
+                <p>Aim of the session: to give to participants basic knowledge about creating design for corporate offers, in particular: structure of the corporate offer, main bodies, rules in choosing design elements, as: colors, fonts, icons, the whole style of the document. Also give examples of good corporate offers and exercise to maintain knowledge obtained.</p>
+                <p>Learning objectives (from participants’ point of view): I know how to create a well structured corporate offer, how to present information so it’s easy to understand, how to use visual elements (photos, icons, infographics) in design, how to choose colors and fonts and what are the main bodies of an offer.</p>
+     		</div></div>
+        </section>
+        
+        <section class="section_content">
+        	<div class="wraper_content">
+                <h4>Upcoming events</h4>
+                <div class="events">
+	            	<div class="event" th:each="event: ${events}">
+	              		<h5 th:utext="${event.title}">Заголовок</h5>
+	               		<p th:utext="${event.shortDescription}"> Текст </p>
+	               		<span class="link_detal"><a href="#" th:href="@{/event/}+'?id='+${event.id}">Деталі</a></span>
+	                </div>
+	            </div>
+            </div>
+        </section>
+        <section class="section_footer">
+        </section>
+    </body>
+</html>

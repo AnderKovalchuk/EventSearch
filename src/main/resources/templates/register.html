@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"> </meta>
+        <title>Main page | EventSearch</title>
+        <link rel="stylesheet" href="/eventsearch/css/main.css" th:href="@{/css/main.css}"> </link>
+        <link rel="stylesheet" href="/eventsearch/css/form.css" th:href="@{/css/form.css}"> </link>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript">
+        	$(document).ready(function(){
+        		$("#formLogin").change(function () {
+        			$.post("/EventSearch/userLogins", {"login": $("#formLogin").val() }).done(function (result) {
+        				if(!result){
+        					$("#formLogin").css("background-color", "red");
+        				} else {
+        					$("#formLogin").css("background-color", "#fff");
+        				}
+        			});
+        		});
+        		
+        		$("#formEmail").change(function () {
+        			
+        			$.post("/EventSearch/userEmail", {"email": $("#formEmail").val() }).done(function (result) {
+        				if(!result){
+        					$("#formEmail").css("background-color", "red");
+        				} else {
+        					$("#formEmail").css("background-color", "#fff");
+        				}
+        			});
+        		});
+        		
+        	});
+        </script>
+    </head>
+    
+    <body>
+    	<section class="section_FullScreen section_TopMain">
+        	<div class="menu">
+            	<div class="wraper_content">
+                      <ul class="menu_main">
+                        <li><a href="/eventsearch/" th:href="@{/}">Main</a> </li>
+                        <li><a href="/eventsearch/events" th:href="@{/events}">List of events</a> </li>
+                        <li><a href="/eventsearch/createEvent" th:href="@{/createEvent}">Create event</a> </li>
+                    </ul>
+                    <ul class="menu_settings">
+                        <li><a href="/eventsearch/registration" th:href="@{/registration}" class="active"> Registration </a> </li>
+                        <li><a href="/eventsearch/login" th:href="@{/login}"> Login </a> </li>
+                    </ul>
+             	</div>
+            </div>
+        
+         	<div class="wraper_center"> <div>
+            	<div class="wraper_smoleForm">
+					<form action="/EventSearch/register" method="post" class="section_content form_element form_oll">
+						<p class="form_label">
+							<span>Login</span>
+							<input type="text" name="login" value="Login" id="formLogin"> </input>
+						</p>
+						<p class="form_label">
+							<span>E-Mail</span>
+							<input type="email" name="email" value="E-Mail" id="formEmail"> </input>
+						</p>
+						<p class="form_label">
+							<span>Password</span>
+							<input type="password" name="pass" value="Password"> </input>
+						</p>
+						<input type="submit" value="Enter" style="display:block; margin:0 auto; margin-top:50px;"> </input>
+					</form>
+				</div>
+         	</div> </div>
+       	</section>
+    </body>
+</html>
